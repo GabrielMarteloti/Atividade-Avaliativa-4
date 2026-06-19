@@ -21,11 +21,12 @@ As árvores AVL, que receberam esse nome em homenagem aos seus inventores, Adels
 
   #### Exemplo Ilustrado
   
-               (30) [Preto]
-              /     \
-      [Vermelho] (20)   (40) [Vermelho]
-            /
-       [Preto] (10)
+              [ Desbalanceada ]                  [ Balanceada ]
+                 (60)                                    (50)
+                 /                                       /  \
+               (50)          -- Rotação -->            (40)  (60)
+               /
+             (40)
 
 ## 2. Árvore Rubro-Negra (Red-Black Tree)
 
@@ -173,6 +174,9 @@ Sistemas de banco de dados relacionais (como PostgreSQL, MySQL e SQLite) precisa
 * Operações realizadas pelo sistema: bancos de dados realizam constantemente inserções, exclusões e, principalmente, buscas. As Árvores N-árias balanceadas (como a B+) garantem que essas operações permaneçam em complexidade próxima de O(log n), mesmo com tabelas muito grandes, sem o crescimento descontrolado de altura que ocorreria em uma BST simples.
 
 Embora árvores AVL e Rubro-Negra também sejam balanceadas e eficientes, elas são mais indicadas para estruturas em memória (como índices de coleções dentro de uma aplicação). Para bancos de dados, que trabalham com grandes volumes de dados persistidos em disco, a estrutura N-ária (Árvore B/B+) é mais adequada, pois minimiza o número de acessos a disco — o recurso mais caro nesse contexto.
+
+###Parte 4 - Comparação entre Estruturas
+
 
 | Estrutura | Nº Máximo de Filhos | Balanceamento | Complexidade de Busca | Complexidade de Inserção | Vantagem Principal | Desvantagem Principal | Exemplo de Aplicação |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
