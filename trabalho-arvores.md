@@ -88,7 +88,76 @@ As árvores N-árias (e suas variantes especializadas como Árvores B, B+ e Trie
 * **Motores de Busca e Autocompletar:** Árvores Trie (um tipo de árvore N-ária de prefixos) para busca textual e indexação de dicionários.
 * **Documentos Estruturados:** Modelagem do DOM (Document Object Model) em páginas HTML e na validação sintática de arquivos XML/JSON.
 
+### 1. Rotação Simples à Direita (Right Rotation - LL)
 
+Objetivo
+Reduzir a altura da subárvore esquerda elevando o filho esquerdo à posição de novo nó pai, restabelecendo o equilíbrio após uma inserção ou remoção que deixou o nó original pendendo excessivamente para a esquerda.
+
+Situação em que é utilizada
+É utilizada quando um nó fica desbalanceado com $FB = +2$ e o seu filho esquerdo possui $FB = +1$ ou $0$. Isso caracteriza um desalinhamento do tipo "Esquerda-Esquerda" (Left-Left).
+
+Exemplo Antes e Depois
+
+    Antes da Rotação (Nó A com FB = +2)            Depois da Rotação
+                 (A)                                      (B)
+                 /                                       /   \
+               (B)                                     (C)   (A)
+               /
+             (C)
+
+### 2. Rotação Simples à Esquerda (Left Rotation - RR)
+
+Objetivo
+Reduzir a altura da subárvore direita elevando o filho direito à posição de novo nó pai, corrigindo o desbalanceamento vertical do lado oposto.
+
+Situação em que é utilizadaDisparada quando um nó apresenta fator de balanceamento $FB = -2$ e o seu filho direito apresenta $FB = -1$ ou $0$. Indica um desalinhamento do tipo "Direita-Direita" (Right-Right).
+
+Exemplo Antes e Depois
+
+    Antes da Rotação (Nó A com FB = -2)            Depois da Rotação
+                 (A)                                      (B)
+                   \                                     /   \
+                   (B)                                 (A)   (C)
+                     \
+                     (C)
+
+
+### 3. Rotações Duplas
+
+Rotação Dupla Esquerda-Direita (Left-Right - LR)
+*Cenário: Ocorre quando um nó está desbalanceado com $FB = +2$, mas o seu filho esquerdo está inclinado para a direita ($FB = -1$).
+*Como funciona: Primeiro, executa-se uma Rotação Simples à Esquerda no filho esquerdo (transformando o cenário em "Esquerda-Esquerda"). Logo em seguida, executa-se uma Rotação Simples à Direita no nó pai original desbalanceado.
+
+### Rotação Dupla Direita-Esquerda (Right-Left - RL)
+*Cenário: Ocorre quando um nó está desbalanceado com $FB = -2$, mas o seu filho direito está inclinado para a esquerda ($FB = +1$).
+*Como funciona: Primeiramente, realiza-se uma Rotação Simples à Direita sobre o filho direito (alinhando o ramo como "Direita-Direita"). Na sequência, aplica-se uma Rotação Simples à Esquerda no nó pai desbalanceado para finalizar.
+
+Exemplos Ilustrados (Caso LR)
+
+    [Original: LR]         [1ª Rotação: RR no Filho]     [2ª Rotação: LL no Pai]
+         (30)                        (30)                         (25)
+         /                           /                            /  \
+       (20)      --------->        (25)       --------->        (20) (30)
+         \                         /
+         (25)                    (20)
+
+### 4. Inversão / Espelhamento (Invert / Mirror)
+
+###Conceito
+A operação de inversão consiste em transformar uma árvore binária em sua imagem espelhada. Estruturalmente, o algoritmo percorre recursivamente todos os nós da árvore e troca a referência do filho esquerdo com o filho direito.
+
+Aplicação
+* Sistemas de Computação Gráfica: Inversão bidimensional de coordenadas ou matrizes hierárquicas de renderização.
+* Questões de Lógica Algorítmica: Muito utilizada em testes e provas conceituais de manipulação profunda de ponteiros e recursividade.
+
+Exemplo Antes e Depois 
+            
+            Árvore Original                              Árvore Espelhada
+                 (10)                                         (10)
+                 /  \                                         /  \
+               (5)  (15)        -- Inversão -->            (15)  (5)
+               /                                               \
+             (2)                                               (2)
 
 ## Parte 3 – Aplicação Prática
 
