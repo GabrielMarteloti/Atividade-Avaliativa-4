@@ -175,7 +175,7 @@ Sistemas de banco de dados relacionais (como PostgreSQL, MySQL e SQLite) precisa
 
 Embora árvores AVL e Rubro-Negra também sejam balanceadas e eficientes, elas são mais indicadas para estruturas em memória (como índices de coleções dentro de uma aplicação). Para bancos de dados, que trabalham com grandes volumes de dados persistidos em disco, a estrutura N-ária (Árvore B/B+) é mais adequada, pois minimiza o número de acessos a disco — o recurso mais caro nesse contexto.
 
-###Parte 4 - Comparação entre Estruturas
+### Parte 4 - Comparação entre Estruturas
 
 
 | Estrutura | Nº Máximo de Filhos | Balanceamento | Complexidade de Busca | Complexidade de Inserção | Vantagem Principal | Desvantagem Principal | Exemplo de Aplicação |
