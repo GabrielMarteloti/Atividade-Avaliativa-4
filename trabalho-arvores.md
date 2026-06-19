@@ -27,7 +27,7 @@ As árvores AVL, que receberam esse nome em homenagem aos seus inventores, Adels
             /
        [Preto] (10)
 
-### 2. Árvore Rubro-Negra (Red-Black Tree)
+## 2. Árvore Rubro-Negra (Red-Black Tree)
 
 #### Conceito
 A Árvore Rubro-Negra é uma variação de Árvore Binária de Busca auto-balanceada que utiliza um esquema de coloração de nós (cada nó é colorido como Vermelho ou Preto) para garantir o balanceamento aproximado da estrutura. Ao contrário da AVL, ela não exige um equilíbrio rígido de altura, o que reduz o número de rotações necessárias durante modificações.
@@ -54,3 +54,23 @@ Para ser classificada como Rubro-Negra, a árvore deve obedecer restritamente a 
     [Vermelho] (20)   (40) [Vermelho]
             /
         [Preto] (10)
+
+
+
+
+
+## Parte 3 – Aplicação Prática
+
+### Aplicação escolhida: Sistema de Banco de Dados (Índices)
+
+### Sistemas de banco de dados relacionais (como PostgreSQL, MySQL e SQLite) precisam localizar registros rapidamente em tabelas que podem conter milhões de linhas. Para isso, utilizam índices, que internamente costumam ser implementados como variações de Árvores B / Árvores B+, que são uma especialização das Árvores N-árias.
+
+### Justificativa
+
+* Desempenho: como cada nó de uma Árvore B/B+ pode armazenar diversas chaves e ponteiros (não apenas dois), a árvore consegue manter uma altura muito menor do que uma árvore binária equivalente. Isso reduz drasticamente o número de acessos a disco necessários para localizar um registro, já que cada nível da árvore corresponde, em geral, a uma leitura de bloco de disco.
+
+* Organização dos dados: as Árvores B+ mantêm todos os dados (ou ponteiros para os dados) ordenados nas folhas, e os nós internos servem apenas como índice de navegação. Essa organização favorece tanto buscas por chave exata quanto buscas por intervalo (BETWEEN, >, <), muito comuns em consultas SQL.
+
+* Operações realizadas pelo sistema: bancos de dados realizam constantemente inserções, exclusões e, principalmente, buscas. As Árvores N-árias balanceadas (como a B+) garantem que essas operações permaneçam em complexidade próxima de O(log n), mesmo com tabelas muito grandes, sem o crescimento descontrolado de altura que ocorreria em uma BST simples.
+
+### Embora árvores AVL e Rubro-Negra também sejam balanceadas e eficientes, elas são mais indicadas para estruturas em memória (como índices de coleções dentro de uma aplicação). Para bancos de dados, que trabalham com grandes volumes de dados persistidos em disco, a estrutura N-ária (Árvore B/B+) é mais adequada, pois minimiza o número de acessos a disco — o recurso mais caro nesse contexto.
