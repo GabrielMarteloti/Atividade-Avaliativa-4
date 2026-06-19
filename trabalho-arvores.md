@@ -20,4 +20,37 @@ As árvores AVL, que receberam esse nome em homenagem aos seus inventores, Adels
 * **Custo Elevado na Inserção e Remoção:** O acréscimo ou a retirada de itens demanda um esforço maior do processador, pois exige reavaliações frequentes dos fatores de balanceamento e a execução de rotações (os "giros") para reequilibrar a estrutura.
 
   #### Exemplo Ilustrado
-```text
+  
+               (30) [Preto]
+              /     \
+      [Vermelho] (20)   (40) [Vermelho]
+            /
+       [Preto] (10)
+
+### 2. Árvore Rubro-Negra (Red-Black Tree)
+
+#### Conceito
+A Árvore Rubro-Negra é uma variação de Árvore Binária de Busca auto-balanceada que utiliza um esquema de coloração de nós (cada nó é colorido como Vermelho ou Preto) para garantir o balanceamento aproximado da estrutura. Ao contrário da AVL, ela não exige um equilíbrio rígido de altura, o que reduz o número de rotações necessárias durante modificações.
+
+#### Regras de Coloração
+Para ser classificada como Rubro-Negra, a árvore deve obedecer restritamente a cinco regras fundamentais:
+* Todo nó é vermelho ou preto.
+* A raiz é sempre preta.
+* Todas as folhas (nós nulos/NIL) são pretas.
+* Se um nó é vermelho, ambos os seus filhos devem ser pretos (não pode haver dois nós vermelhos consecutivos na vertical).
+* **Caminho Preto Constante:** Para cada nó, todos os caminhos lineares dele até as folhas descendentes devem conter exatamente o mesmo número de nós pretos.
+
+#### Vantagens
+* **Inserções e Remoções Eficientes:** Como o critério de balanceamento é mais flexível que o da AVL, as modificações exigem muito menos rotações. No pior caso, a inserção requer no máximo duas rotações.
+* **Desempenho Geral Consistente:** Mantém um excelente equilíbrio entre velocidade de busca, inserção e remoção, operando consistentemente em $O(\log n)$.
+
+#### Desvantagens
+* **Busca Ligeiramente Mais Lenta que a AVL:** Devido ao balanceamento aproximado, a árvore pode ficar até duas vezes mais alta que uma árvore AVL perfeitamente balanceada com o mesmo número de nós.
+* **Complexidade de Implementação:** As regras de reconfiguração (recoloração e rotação baseadas nos tios do nó) geram muitos casos de teste e uma lógica de código complexa.
+
+#### Exemplo Ilustrado
+           (30) [Preto]
+              /     \
+    [Vermelho] (20)   (40) [Vermelho]
+            /
+        [Preto] (10)
