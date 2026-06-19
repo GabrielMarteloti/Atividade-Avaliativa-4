@@ -124,7 +124,7 @@ Exemplo Antes e Depois
 
 ### 3. Rotações Duplas
 
-Rotação Dupla Esquerda-Direita (Left-Right - LR)
+### Rotação Dupla Esquerda-Direita (Left-Right - LR)
 *Cenário: Ocorre quando um nó está desbalanceado com $FB = +2$, mas o seu filho esquerdo está inclinado para a direita ($FB = -1$).
 *Como funciona: Primeiro, executa-se uma Rotação Simples à Esquerda no filho esquerdo (transformando o cenário em "Esquerda-Esquerda"). Logo em seguida, executa-se uma Rotação Simples à Direita no nó pai original desbalanceado.
 
