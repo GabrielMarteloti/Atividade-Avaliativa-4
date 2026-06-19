@@ -56,6 +56,37 @@ Para ser classificada como Rubro-Negra, a árvore deve obedecer restritamente a 
         [Preto] (10)
 
 
+### 3. Árvore N-ária (Árvore Geral)
+
+#### Conceito
+Uma Árvore N-ária é uma estrutura de dados hierárquica na qual cada nó pode possuir, no máximo, *N* filhos. Ela rompe a limitação tradicional das árvores binárias (que restringem o grau de saída a no máximo 2), permitindo mapear estruturas ramificadas de forma mais natural e flexível.
+
+#### Diferenças em relação às árvores binárias
+* **Grau de Saída:** Em uma árvore binária, o limite de filhos por nó é estritamente 2. Em uma árvore N-ária, esse limite é definido pelo parâmetro fixo ou dinâmico *N* (por exemplo, uma árvore 4-ária pode ter até 4 filhos por nó).
+* **Estrutura do Nó:** O nó de uma árvore binária possui apenas dois ponteiros (`esq` e `dir`). Um nó de árvore N-ária armazena uma coleção, lista encadeada ou array de ponteiros para referenciar seus múltiplos filhos.
+
+#### Vantagens
+* **Modelagem Direta de Estruturas Reais:** Perfeita para representar conceitos de agrupamento multifacetado, como sistemas de diretórios e categorizações taxonômicas.
+* **Redução de Altura:** Ao expandir a quantidade de filhos por nível, a altura total da árvore diminui drasticamente, diminuindo o número de saltos em disco ou memória para acessar dados folha.
+
+#### Desvantagens
+* **Desperdício Potencial de Memória:** Se os nós forem alocados com arrays estáticos de tamanho *N* e a maioria tiver poucos filhos, haverá um grande volume de ponteiros nulos (`null`) desperdiçados.
+* **Complexidade de Percurso:** Algoritmos clássicos de percurso em ordem tornam-se ambíguos ou consideravelmente complexos se comparados à simplicidade do pré/pós/em-ordem binários.
+
+#### Exemplo Ilustrado (Árvore 3-ária / Ternária)
+
+                      [ Raiz ]
+                     /   |    \
+                  [A]   [B]   [C]
+                 /   \         |
+               [D]   [E]      [F]
+
+#### Aplicações Práticas
+As árvores N-árias (e suas variantes especializadas como Árvores B, B+ e Tries) são largamente aplicadas em:
+
+* **Sistemas de Arquivos (Filesystems):** Organização de pastas e subpastas em sistemas operacionais (NTFS, ext4).
+* **Motores de Busca e Autocompletar:** Árvores Trie (um tipo de árvore N-ária de prefixos) para busca textual e indexação de dicionários.
+* **Documentos Estruturados:** Modelagem do DOM (Document Object Model) em páginas HTML e na validação sintática de arquivos XML/JSON.
 
 
 
