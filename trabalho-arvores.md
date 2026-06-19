@@ -62,8 +62,7 @@ Para ser classificada como Rubro-Negra, a árvore deve obedecer restritamente a 
 ## Parte 3 – Aplicação Prática
 
 ### Aplicação escolhida: Sistema de Banco de Dados (Índices)
-
-# Sistemas de banco de dados relacionais (como PostgreSQL, MySQL e SQLite) precisam localizar registros rapidamente em tabelas que podem conter milhões de linhas. Para isso, utilizam índices, que internamente costumam ser implementados como variações de Árvores B / Árvores B+, que são uma especialização das Árvores N-árias.
+Sistemas de banco de dados relacionais (como PostgreSQL, MySQL e SQLite) precisam localizar registros rapidamente em tabelas que podem conter milhões de linhas. Para isso, utilizam índices, que internamente costumam ser implementados como variações de Árvores B / Árvores B+, que são uma especialização das Árvores N-árias.
 
 ## Justificativa
 
@@ -73,4 +72,4 @@ Para ser classificada como Rubro-Negra, a árvore deve obedecer restritamente a 
 
 * Operações realizadas pelo sistema: bancos de dados realizam constantemente inserções, exclusões e, principalmente, buscas. As Árvores N-árias balanceadas (como a B+) garantem que essas operações permaneçam em complexidade próxima de O(log n), mesmo com tabelas muito grandes, sem o crescimento descontrolado de altura que ocorreria em uma BST simples.
 
-# Embora árvores AVL e Rubro-Negra também sejam balanceadas e eficientes, elas são mais indicadas para estruturas em memória (como índices de coleções dentro de uma aplicação). Para bancos de dados, que trabalham com grandes volumes de dados persistidos em disco, a estrutura N-ária (Árvore B/B+) é mais adequada, pois minimiza o número de acessos a disco — o recurso mais caro nesse contexto.
+Embora árvores AVL e Rubro-Negra também sejam balanceadas e eficientes, elas são mais indicadas para estruturas em memória (como índices de coleções dentro de uma aplicação). Para bancos de dados, que trabalham com grandes volumes de dados persistidos em disco, a estrutura N-ária (Árvore B/B+) é mais adequada, pois minimiza o número de acessos a disco — o recurso mais caro nesse contexto.
